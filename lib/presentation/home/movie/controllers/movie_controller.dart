@@ -14,7 +14,6 @@ import 'package:movies_apps/domain/movie/upcoming.model.dart';
 
 class MovieController extends GetxController {
   ///config
-  final fetchDetail = false.obs;
   final movieId = 0.obs;
   ///movie object
   var topRatedMovies = TopRatedModel().obs;
@@ -40,14 +39,12 @@ class MovieController extends GetxController {
 
   @override
   void onInit() {
-    if(!fetchDetail.value){
+
       _fetchNowPlaying();
       _fetchPopularMovie();
       _fetchUpcomingMovie();
       _fetchTopRated();
-    }else{
-      _getDetailMovie();
-    }
+
     super.onInit();
   }
 
@@ -81,7 +78,7 @@ class MovieController extends GetxController {
 
   /// get detail movie by ID
   void setMovieId(id)=>movieId.value=id;
-  void _getDetailMovie()async{
+  void getDetailMovie()async{
     isDetailLoading.value=true;
     detailMovie.value = await _detailMovieRepository.getDetailMovie(movieId.value);
     log('detail title movie : ${detailMovie.value.title}');

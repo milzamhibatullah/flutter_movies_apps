@@ -30,7 +30,9 @@ class ComingSoonView extends GetView<MovieController> {
     return GestureDetector(
       onTap: ()async{
         log('movie id : ${item.id}');
+        controller.setMovieId(item.id);
         await Get.toNamed('/detail-movie');
+
       },
       behavior: HitTestBehavior.opaque,
       child: Container(

@@ -41,7 +41,7 @@ class Nav {
     ),
     GetPage(
         name: Routes.DETAILMOVIE,
-        page: () => const DetailMovieView(),
+        page: () =>  DetailMovieView(),
         binding: HomeControllerBinding())
   ];
 }
