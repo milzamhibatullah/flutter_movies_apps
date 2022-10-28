@@ -22,7 +22,7 @@ class HomeScreen extends GetView<HomeController> {
         style: TabStyle.react,
         color: Colors.white,
         activeColor: Colors.white,
-        backgroundColor: const Color(0xFF212121),
+        backgroundColor: Colors.black,
         items: const [
           TabItem(icon: Icons.home, title: 'Home',),
           TabItem(icon: Icons.explore, title: 'Explore'),
