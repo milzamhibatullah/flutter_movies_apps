@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/login_controller.dart';
+import '../controllers/movie_controller.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+class MovieView extends GetView<MovieController> {
+  const MovieView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    controller.onInit();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LoginView'),
+        title: const Text('MovieView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
-          'LoginView is working',
+          'MovieView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

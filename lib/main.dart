@@ -12,12 +12,11 @@ void main() async {
 
 class Main extends StatelessWidget {
   final String initialRoute;
-  Main(this.initialRoute);
+  const Main(this.initialRoute);
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
       initialRoute: initialRoute,
       getPages: Nav.routes,
     );
