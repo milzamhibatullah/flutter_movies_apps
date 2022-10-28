@@ -12,8 +12,19 @@ class SplashScreen extends GetView<SplashController> {
     controller.nextToHome();
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Image.asset(AssetsEnv.APPSLOGO)
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AssetsEnv.SPLASHBACKGROUND),
+            fit: BoxFit.cover,
+            colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken)
+          )
+        ),
+        child: Center(
+          child: Image.asset(AssetsEnv.APPSLOGO),
+        ),
       ),
     );
   }

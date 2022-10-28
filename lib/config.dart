@@ -10,7 +10,8 @@ class AssetsEnv{
   ///logo assets;
   static String APPSLOGO = 'assets/logos/apps_logo.png';
 
-  ///illustrations assets;
+  ///splash backgrounds
+  static String SPLASHBACKGROUND = 'assets/backgrounds/splash_background.jpg';
 }
 
 
