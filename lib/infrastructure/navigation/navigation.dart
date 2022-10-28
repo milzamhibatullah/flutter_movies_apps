@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:movies_apps/presentation/home/movie/views/detail_movie_view.dart';
 
 import '../../config.dart';
 import '../../presentation/screens.dart';
@@ -9,7 +10,9 @@ import 'routes.dart';
 
 class EnvironmentsBadge extends StatelessWidget {
   final Widget child;
+
   const EnvironmentsBadge({required this.child});
+
   @override
   Widget build(BuildContext context) {
     var env = ConfigEnvironments.getEnvironments()['env'];
@@ -36,5 +39,9 @@ class Nav {
       page: () => const SplashScreen(),
       binding: SplashControllerBinding(),
     ),
+    GetPage(
+        name: Routes.DETAILMOVIE,
+        page: () => const DetailMovieView(),
+        binding: HomeControllerBinding())
   ];
 }

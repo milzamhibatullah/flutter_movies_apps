@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
-import 'package:movies_apps/presentation/home/movie/views/coming_soon_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/now_playing_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/popular_movie_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/top_rated_view.dart';
+import 'package:movies_apps/presentation/home/movie/views/category/coming_soon_view.dart';
+import 'package:movies_apps/presentation/home/movie/views/category/now_playing_view.dart';
+import 'package:movies_apps/presentation/home/movie/views/category/popular_movie_view.dart';
+import 'package:movies_apps/presentation/home/movie/views/category/top_rated_view.dart';
 
 import '../controllers/movie_controller.dart';
 
@@ -15,7 +15,7 @@ class MovieView extends GetView<MovieController> {
   Widget build(BuildContext context) {
     controller.onInit();
     return Scaffold(
-      backgroundColor: Color(0xFF212121),
+      backgroundColor: const Color(0xFF212121),
       body: SafeArea(
         child: SizedBox(
           width: Get.width,
@@ -58,7 +58,7 @@ class MovieView extends GetView<MovieController> {
 
                 ///coming soon section
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: comtext.title(
                       text: 'Coming Soon', size: 18.0, color: Colors.white),
                 ),
@@ -69,7 +69,7 @@ class MovieView extends GetView<MovieController> {
 
                 ///trending
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: comtext.title(
                       text: 'Trending', size: 18.0, color: Colors.white),
                 ),
@@ -81,7 +81,7 @@ class MovieView extends GetView<MovieController> {
                 ),
 
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
                         text: 'Now Playing', size: 18.0, color: Colors.white)),
                 const NowPlayingView(),
@@ -91,7 +91,7 @@ class MovieView extends GetView<MovieController> {
                   height: 20.0,
                 ),
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
                         text: 'Top Rated', size: 18.0, color: Colors.white)),
                const TopRatedView(),
