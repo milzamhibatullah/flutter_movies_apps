@@ -5,6 +5,16 @@ class Environments {
   static const String LOCAL = 'local';
 }
 
+///used for assets envi
+class AssetsEnv{
+  ///logo assets;
+  static String APPSLOGO = 'assets/logos/apps_logo.png';
+
+  ///illustrations assets;
+}
+
+
+
 class ConfigEnvironments {
   static const String _currentEnvironments = Environments.LOCAL;
   static final List<Map<String, String>> _availableEnvironments = [
@@ -31,4 +41,5 @@ class ConfigEnvironments {
       (d) => d['env'] == _currentEnvironments,
     );
   }
+
 }
