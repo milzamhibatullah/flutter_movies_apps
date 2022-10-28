@@ -52,14 +52,14 @@ class MovieController extends GetxController {
   void _fetchTopRated()async{
     isTopRatedLoading.value=true;
     topRatedMovies.value = await _topRatedRepository.getTopRated()!;
-    Future.delayed(const Duration(seconds: 1),()=>isTopRatedLoading.value=false);
+    Future.delayed(const Duration(seconds: 2),()=>isTopRatedLoading.value=false);
   }
 
   /// fetch nowplaying movies
   void _fetchNowPlaying()async{
     isNowPlayLoading.value=true;
      nowPlayingMovies.value=await _nowPlayingRepository.getNowPlaying()!;
-    Future.delayed(const Duration(seconds: 1),()=>isNowPlayLoading.value=false);
+    Future.delayed(const Duration(seconds: 2),()=>isNowPlayLoading.value=false);
   }
 
   /// fetch upcoming movies
@@ -73,7 +73,7 @@ class MovieController extends GetxController {
   void _fetchPopularMovie()async{
     isPopularLoading.value=true;
     popularMovies.value = await _popularMovieRepository.getPopularMovie()!;
-    Future.delayed(const Duration(seconds: 1),()=>isPopularLoading.value=false);
+    Future.delayed(const Duration(seconds: 2),()=>isPopularLoading.value=false);
   }
 
   /// get detail movie by ID
@@ -82,6 +82,7 @@ class MovieController extends GetxController {
     isDetailLoading.value=true;
     detailMovie.value = await _detailMovieRepository.getDetailMovie(movieId.value);
     log('detail title movie : ${detailMovie.value.title}');
-    Future.delayed(const Duration(seconds: 1),()=>isPopularLoading.value=false);
+    Future.delayed(const Duration(seconds: 1),()=>isDetailLoading.value=false);
+    update();
   }
 }

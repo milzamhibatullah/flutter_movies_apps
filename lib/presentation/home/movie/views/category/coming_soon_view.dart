@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movies_apps/presentation/component/shimmer.component.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
 import 'package:movies_apps/presentation/home/movie/controllers/movie_controller.dart';
 
@@ -20,17 +21,15 @@ class ComingSoonView extends GetView<MovieController> {
               itemCount: controller.upcomingMovies.value.results!.length,
             ),
           )
-        : const SizedBox(
-            height: 0.0,
-          ));
+        : largeItemHorizontalShimmer());
   }
 
   Widget _items(index) {
     final item = controller.upcomingMovies.value.results![index];
     return GestureDetector(
       onTap: ()async{
-        log('movie id : ${item.id}');
         controller.setMovieId(item.id);
+        controller.getDetailMovie();
         await Get.toNamed('/detail-movie');
 
       },

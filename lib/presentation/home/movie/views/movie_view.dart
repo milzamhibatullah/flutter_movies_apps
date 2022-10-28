@@ -20,86 +20,64 @@ class MovieView extends GetView<MovieController> {
         child: SizedBox(
           width: Get.width,
           height: Get.height,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Obx(()=>controller.isTopRatedLoading.value==true?const CircularProgressIndicator():Center(
-                //   child: Text(
-                //     '${controller.topRatedMovies.value.results!.length}',
-                //     style: const TextStyle(fontSize: 20),
-                //   ),
-                // )),
-                // const SizedBox(height: 20.0,),
-                // Obx(()=>controller.isNowPlayLoading.value==true?const CircularProgressIndicator():Center(
-                //   child: Text(
-                //     '${controller.nowPlayingMovies.value.results!.length}',
-                //     style: const TextStyle(fontSize: 20),
-                //   ),
-                // )),
-                // const SizedBox(height: 20.0,),
-                // Obx(()=>controller.isUpcomingLoading.value==true?const CircularProgressIndicator():Center(
-                //   child: Text(
-                //     '${controller.upcomingMovies.value.results!.length}',
-                //     style: const TextStyle(fontSize: 20),
-                //   ),
-                // )),
-                // const SizedBox(height: 20.0,),
-                // Obx(()=>controller.isPopularLoading.value==true?const CircularProgressIndicator():Center(
-                //   child: Text(
-                //     '${controller.popularMovies.value.results!.length}',
-                //     style: const TextStyle(fontSize: 20),
-                //   ),
-                // )),
-                const SizedBox(
-                  height: 20.0,
-                ),
+          child: RefreshIndicator(
+            onRefresh: ()async=>controller.onInit(),
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-                ///coming soon section
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: comtext.title(
-                      text: 'Coming Soon', size: 18.0, color: Colors.white),
-                ),
-                const ComingSoonView(),
-                const SizedBox(
-                  height: 10.0,
-                ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
 
-                ///trending
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: comtext.title(
-                      text: 'Trending', size: 18.0, color: Colors.white),
-                ),
-                const PopularMovieView(),
-
-                ///now playing
-                const SizedBox(
-                  height: 20.0,
-                ),
-
-                Container(
+                  ///coming soon section
+                  Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
-                        text: 'Now Playing', size: 18.0, color: Colors.white)),
-                const NowPlayingView(),
+                        text: 'Coming Soon', size: 18.0, color: Colors.white),
+                  ),
+                  const ComingSoonView(),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
 
-                ///toprated
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Container(
+                  ///trending
+                  Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
-                        text: 'Top Rated', size: 18.0, color: Colors.white)),
-               const TopRatedView(),
+                        text: 'Trending', size: 18.0, color: Colors.white),
+                  ),
+                  const PopularMovieView(),
 
-                const SizedBox(
-                  height: 40.0,
-                ),
-              ],
+                  ///now playing
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+
+                  Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: comtext.title(
+                          text: 'Now Playing', size: 18.0, color: Colors.white)),
+                  const NowPlayingView(),
+
+                  ///toprated
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: comtext.title(
+                          text: 'Top Rated', size: 18.0, color: Colors.white)),
+                  const TopRatedView(),
+
+                  const SizedBox(
+                    height: 40.0,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
