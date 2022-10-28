@@ -2,7 +2,6 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:movies_apps/presentation/home/movie/views/movie_view.dart';
 import 'package:movies_apps/presentation/home/views/movieview_view.dart';
 
 import 'controllers/home.controller.dart';
@@ -31,7 +30,7 @@ class HomeScreen extends GetView<HomeController> {
         ],
 
       ),
-      body: MovieviewView(),
+      body: const MovieviewView(),
     );
   }
 }

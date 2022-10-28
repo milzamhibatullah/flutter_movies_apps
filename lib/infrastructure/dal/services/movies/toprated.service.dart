@@ -1,9 +1,9 @@
 
-import 'package:movies_apps/domain/movie/providers/toprated_provider.dart';
+import 'package:movies_apps/domain/movie/providers/movie.provider.dart';
 import 'package:movies_apps/domain/movie/toprated.model.dart';
 
 class TopRatedService {
-  final _provider = TopratedProvider();
+  final _provider = MovieProvider();
 
   Future<TopRatedModel> fetchData()async {
    try{
