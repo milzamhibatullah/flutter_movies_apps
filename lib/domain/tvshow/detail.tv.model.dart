@@ -25,7 +25,7 @@ class DetailTvModel {
   String? status;
   String? tagline;
   String? type;
-  int? voteAverage;
+  double? voteAverage;
   int? voteCount;
 
   DetailTvModel(
@@ -87,7 +87,7 @@ class DetailTvModel {
     originalLanguage = json['original_language'];
     originalName = json['original_name'];
     overview = json['overview'];
-    popularity = json['popularity'];
+    popularity = double.parse(json['popularity'].toString());
     posterPath = json['poster_path'];
 
     if (json['seasons'] != null) {

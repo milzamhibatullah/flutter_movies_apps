@@ -1,8 +1,11 @@
 
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:movies_apps/domain/tvshow/detail.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/onair.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/popular.tv.model.dart';
+import 'package:movies_apps/domain/tvshow/repository/detail.tv.repository.dart';
 import 'package:movies_apps/domain/tvshow/repository/onair.tv.repository.dart';
 import 'package:movies_apps/domain/tvshow/repository/popular.tv.repository.dart';
 import 'package:movies_apps/domain/tvshow/repository/todayairing.tv.repository.dart';
@@ -11,6 +14,8 @@ import 'package:movies_apps/domain/tvshow/todayairing.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/toprated.tv.model.dart';
 
 class TvShowController extends GetxController{
+  ///config
+  final tvId = 0.obs;
   ///tv object
   var topRatedTv = TopRatedTvModel().obs;
   var popularTv = PopularTvModel().obs;
@@ -23,7 +28,7 @@ class TvShowController extends GetxController{
   final _popularTvRepository = PopularTvRepository();
   final _onAirTvRepository = OnAirTvRepository();
   final _todayAiringTvRepository = TodayAiringTvRepository();
- // final _detailMovieRepository=DetailMovieRepository();
+  final _detailTvRepository=DetailTvRepository();
 
   ///all state loading
   final isTopRatedLoading=false.obs;
@@ -67,5 +72,15 @@ class TvShowController extends GetxController{
     isTodayAiringLoading.value=true;
     todayAiringTv.value = await _todayAiringTvRepository.getTodayAiringTv()!;
     Future.delayed(const Duration(seconds: 2),()=>isTodayAiringLoading.value=false);
+  }
+
+  /// get detail tvby ID
+  void seTvId(id)=>tvId.value=id;
+  void getDetailTv()async{
+    isDetailLoading.value=true;
+    detailTv.value = await _detailTvRepository.getDetailTv(tvId.value);
+    log('detail title movie : ${detailTv.value.name}');
+    Future.delayed(const Duration(seconds: 1),()=>isDetailLoading.value=false);
+    update();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:movies_apps/config.dart';
+import 'package:movies_apps/domain/tvshow/detail.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/onair.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/popular.tv.model.dart';
 import 'package:movies_apps/domain/tvshow/todayairing.tv.model.dart';
@@ -31,5 +32,11 @@ class TvProvider extends GetConnect {
       get<TodayAiringTvModel>(
         '${ConfigEnvironments.getEnvironments()['url']}tv/airing_today?api_key=$apiKey',
         decoder: (obj) => TodayAiringTvModel.fromJson(obj),
+      );
+
+  ///get detail tv by id
+  Future<Response<DetailTvModel>> getDetailTv(id) => get<DetailTvModel>(
+        '${ConfigEnvironments.getEnvironments()['url']}tv/$id?api_key=$apiKey',
+        decoder: (obj) => DetailTvModel.fromJson(obj),
       );
 }

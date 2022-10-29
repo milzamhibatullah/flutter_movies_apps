@@ -6,4 +6,5 @@ class Routes {
   static const HOME = '/home';
   static const SPLASH = '/splash';
   static const DETAILMOVIE = '/detail-movie';
+  static const DETAILTV='/detail-tv';
 }

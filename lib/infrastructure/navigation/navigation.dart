@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:movies_apps/presentation/home/movie/views/detail_movie_view.dart';
+import 'package:movies_apps/presentation/home/tvshow/views/detail_tv_view.dart';
 
 import '../../config.dart';
 import '../../presentation/screens.dart';
@@ -42,6 +43,10 @@ class Nav {
     GetPage(
         name: Routes.DETAILMOVIE,
         page: () =>  const DetailMovieView(),
+        binding: HomeControllerBinding()),
+    GetPage(
+        name: Routes.DETAILTV,
+        page: () =>  const DetailTvView(),
         binding: HomeControllerBinding())
   ];
 }

@@ -27,9 +27,9 @@ class PopularTvView extends GetView<TvShowController> {
     final item = controller.popularTv.value.results![index];
     return GestureDetector(
       onTap: ()async{
-        // controller.setMovieId(item.id);
-        // controller.getDetailMovie();
-        // await Get.toNamed('/detail-movie');
+        controller.seTvId(item.id);
+        controller.getDetailTv();
+        await Get.toNamed('/detail-tv');
       },
       behavior: HitTestBehavior.opaque,
       child: Container(
