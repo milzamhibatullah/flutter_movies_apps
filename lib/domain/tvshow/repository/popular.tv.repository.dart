@@ -3,5 +3,5 @@ import 'package:movies_apps/infrastructure/dal/services/tvshow/popular.tv.servic
 
 class PopularTvRepository{
   final _service = PopularTvService();
-  Future<PopularTvModel>? getNowPopularTv()=>_service.fetchData();
+  Future<PopularTvModel>? getPopularTv()=>_service.fetchData();
 }
