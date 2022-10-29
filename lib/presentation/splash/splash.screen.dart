@@ -17,13 +17,13 @@ class SplashScreen extends GetView<SplashController> {
         width: Get.width,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AssetsEnv.SPLASHBACKGROUND),
+            image:const AssetImage('assets/backgrounds/splash_background.jpg'),
             fit: BoxFit.cover,
             colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.darken)
           )
         ),
         child: Center(
-          child: Image.asset(AssetsEnv.APPSLOGO),
+          child: Image.asset('assets/logos/apps_logo.png'),
         ),
       ),
     );

@@ -9,5 +9,5 @@ class SplashController extends GetxController {
 
 
   void increment() => count.value++;
-  void nextToHome()=>Future.delayed(const Duration(seconds: 3),()async=>await Get.offNamed(Routes.HOME));
+  void nextToHome()=>Future.delayed(const Duration(seconds: 5),()async=>await Get.offNamed(Routes.HOME));
 }
