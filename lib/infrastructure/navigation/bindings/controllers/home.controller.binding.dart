@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
-import 'package:movies_apps/presentation/home/movie/controllers/movie_controller.dart';
+import 'package:movies_apps/presentation/home/controllers/movie.controller.dart';
+import 'package:movies_apps/presentation/home/controllers/tvshow.controller.dart';
 
 import '../../../../presentation/home/controllers/home.controller.dart';
 
@@ -12,6 +13,9 @@ class HomeControllerBinding extends Bindings {
     );
     Get.lazyPut<HomeController>(
       () => HomeController(),
+    );
+    Get.lazyPut<TvShowController>(
+        ()=>TvShowController(),
     );
   }
 }

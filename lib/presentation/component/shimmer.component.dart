@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:movies_apps/presentation/component/text.component.dart';
 import 'package:shimmer/shimmer.dart';
 
 verticalItemShimmer() => Shimmer.fromColors(

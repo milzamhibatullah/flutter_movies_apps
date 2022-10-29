@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:movies_apps/domain/movie/detail.movie.model.dart';
 import 'package:movies_apps/presentation/component/shimmer.component.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
-import 'package:movies_apps/presentation/home/movie/controllers/movie_controller.dart';
+import 'package:movies_apps/presentation/home/controllers/movie.controller.dart';
 import 'package:get/get.dart';
 
 
 class DetailMovieView extends GetView<MovieController> {
-  DetailMovieView({Key? key}) : super(key: key);
+  const DetailMovieView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

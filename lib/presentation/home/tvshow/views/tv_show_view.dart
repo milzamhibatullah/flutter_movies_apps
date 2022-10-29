@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
-import 'package:movies_apps/presentation/home/movie/views/category/coming_soon_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/category/now_playing_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/category/popular_movie_view.dart';
-import 'package:movies_apps/presentation/home/movie/views/category/top_rated_view.dart';
+import 'package:movies_apps/presentation/home/controllers/tvshow.controller.dart';
 
-import '../../controllers/movie.controller.dart';
-
-class MovieView extends GetView<MovieController> {
-  const MovieView({Key? key}) : super(key: key);
+class TvShowView extends GetView<TvShowController> {
+  const TvShowView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     controller.onInit();
@@ -37,9 +31,9 @@ class MovieView extends GetView<MovieController> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
-                        text: 'Coming Soon', size: 18.0, color: Colors.white),
+                        text: 'Popular Tv Show', size: 18.0, color: Colors.white),
                   ),
-                  const ComingSoonView(),
+                //  const ComingSoonView(),
                   const SizedBox(
                     height: 10.0,
                   ),
@@ -48,9 +42,9 @@ class MovieView extends GetView<MovieController> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: comtext.title(
-                        text: 'Trending Movies', size: 18.0, color: Colors.white),
+                        text: 'Top Rated Tv Show', size: 18.0, color: Colors.white),
                   ),
-                  const PopularMovieView(),
+                 //const PopularMovieView(),
 
                   ///now playing
                   const SizedBox(
@@ -60,8 +54,8 @@ class MovieView extends GetView<MovieController> {
                   Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: comtext.title(
-                          text: 'Now Playing Movies', size: 18.0, color: Colors.white)),
-                  const NowPlayingView(),
+                          text: 'On Air Tv Show', size: 18.0, color: Colors.white)),
+                 // const NowPlayingView(),
 
                   ///toprated
                   const SizedBox(
@@ -70,8 +64,8 @@ class MovieView extends GetView<MovieController> {
                   Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: comtext.title(
-                          text: 'Top Rated Movies', size: 18.0, color: Colors.white)),
-                  const TopRatedView(),
+                          text: 'Airing Today', size: 18.0, color: Colors.white)),
+                //  const TopRatedView(),
 
                   const SizedBox(
                     height: 40.0,

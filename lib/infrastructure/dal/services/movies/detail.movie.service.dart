@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:movies_apps/domain/movie/detail.movie.model.dart';
 import 'package:movies_apps/domain/movie/providers/movie.provider.dart';
-import '';
 class DetailMovieService{
   final _provider = MovieProvider();
   Future<DetailMovieModel> getDetail(id)async{

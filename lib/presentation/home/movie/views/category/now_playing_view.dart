@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movies_apps/presentation/component/shimmer.component.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
-import 'package:movies_apps/presentation/home/movie/controllers/movie_controller.dart';
+import 'package:movies_apps/presentation/home/controllers/movie.controller.dart';
 
 class NowPlayingView extends GetView<MovieController> {
   const NowPlayingView({Key? key}) : super(key: key);
