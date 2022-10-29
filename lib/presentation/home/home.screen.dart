@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:movies_apps/config.dart';
+import 'package:movies_apps/presentation/home/movie/views/movie_view.dart';
 import 'package:movies_apps/presentation/home/tvshow/views/tv_show_view.dart';
 
 import 'controllers/home.controller.dart';
@@ -21,7 +22,10 @@ class HomeScreen extends GetView<HomeController> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.black,
-        title: Image.asset(AssetsEnv.APPSLOGO,height: Get.height/8,),
+        title: Image.asset(
+          AssetsEnv.APPSLOGO,
+          height: Get.height / 8,
+        ),
       ),
       backgroundColor: Colors.black,
       bottomNavigationBar: ConvexAppBar(
@@ -29,14 +33,23 @@ class HomeScreen extends GetView<HomeController> {
         color: Colors.white,
         activeColor: Colors.white,
         backgroundColor: Colors.black,
+        onTap: (index) => controller.setMenuIndex(index),
         items: const [
-          TabItem(icon: Icons.movie, title: 'Movies',),
+          TabItem(
+            icon: Icons.movie,
+            title: 'Movies',
+          ),
           TabItem(icon: Icons.tv_rounded, title: 'TV show'),
           TabItem(icon: Icons.watch_later_outlined, title: 'Watch list')
         ],
-
       ),
-      body: const TvShowView(),
+      body: Obx(() => controller.menuIndex.value == 0
+          ? const MovieView()
+          : controller.menuIndex.value == 1
+              ? const TvShowView()
+              : Container(
+                  color: Colors.blue,
+                )),
     );
   }
 }
