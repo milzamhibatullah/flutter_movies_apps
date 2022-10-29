@@ -9,7 +9,7 @@ class UpcomingMovieService {
     try{
       MovieUpcomingModel? obj;
       await _provider.getUpcomingMovie().then((value){
-        print('upcoming url : ${value.request!.url}');
+      //  print('upcoming url : ${value.request!.url}');
 
         if(value.statusCode==200){
           obj=value.body;

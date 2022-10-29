@@ -10,7 +10,7 @@ class TopRatedTvService {
     try {
       TopRatedTvModel? obj;
       await _provider.getTopRatedTv().then((value) {
-        print('popular url : ${value.request!.url}');
+       // print('popular url : ${value.request!.url}');
         if (value.statusCode == 200) {
           obj = value.body;
         } else {

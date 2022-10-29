@@ -9,7 +9,7 @@ class TopRatedService {
    try{
      TopRatedModel? obj;
      await _provider.getTopRated().then((value){
-       print(value.request!.url);
+      // print(value.request!.url);
        if(value.statusCode==200){
         obj=value.body;
        }else{

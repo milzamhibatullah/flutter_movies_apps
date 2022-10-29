@@ -10,7 +10,7 @@ class OnAirTvService {
     try {
       OnAirTvModel? obj;
       await _provider.getOnAirTv().then((value) {
-        print('popular url : ${value.request!.url}');
+       // print('popular url : ${value.request!.url}');
         if (value.statusCode == 200) {
           obj = value.body;
         } else {

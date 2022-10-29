@@ -11,7 +11,7 @@ class PopularMovieService {
     try{
       PopularMovieModel? obj;
       await _provider.getPopularMovie().then((value){
-        print('popular url : ${value.request!.url}');
+        //print('popular url : ${value.request!.url}');
         if(value.statusCode==200){
           obj=value.body;
         }else{

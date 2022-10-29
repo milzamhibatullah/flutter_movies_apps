@@ -11,7 +11,7 @@ class NowPlayingService {
     try{
      NowPlayingModel? obj;
       await _provider.getNowPlaying().then((value){
-        print('nowplay url : ${value.request!.url}');
+        //print('nowplay url : ${value.request!.url}');
 
         if(value.statusCode==200){
           obj=value.body;
