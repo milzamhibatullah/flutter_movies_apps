@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:movies_apps/config.dart';
 import 'package:movies_apps/presentation/home/movie/views/movie_view.dart';
 import 'package:movies_apps/presentation/home/tvshow/views/tv_show_view.dart';
+import 'package:movies_apps/presentation/home/watching_list/watching_list_view.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -47,9 +48,7 @@ class HomeScreen extends GetView<HomeController> {
           ? const MovieView()
           : controller.menuIndex.value == 1
               ? const TvShowView()
-              : Container(
-                  color: Colors.blue,
-                )),
+              : WatchingListView()),
     );
   }
 }

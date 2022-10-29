@@ -42,11 +42,11 @@ class Nav {
     ),
     GetPage(
         name: Routes.DETAILMOVIE,
-        page: () =>  const DetailMovieView(),
+        page: () =>   DetailMovieView(),
         binding: HomeControllerBinding()),
     GetPage(
         name: Routes.DETAILTV,
-        page: () =>  const DetailTvView(),
+        page: () =>   DetailTvView(),
         binding: HomeControllerBinding())
   ];
 }

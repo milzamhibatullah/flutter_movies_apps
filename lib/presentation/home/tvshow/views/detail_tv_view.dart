@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:movies_apps/domain/watch_later/watch.later.model.dart';
 import 'package:movies_apps/presentation/component/shimmer.component.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
 import 'package:movies_apps/presentation/home/controllers/tvshow.controller.dart';
+import 'package:movies_apps/presentation/home/controllers/watching.list.controller.dart';
 
-class DetailTvView extends GetView<TvShowController> {
-  const DetailTvView({Key? key}) : super(key: key);
+class DetailTvView extends StatelessWidget {
+   DetailTvView({Key? key}) : super(key: key);
+  final controller = Get.put(TvShowController());
+  final watchingListController = Get.put(WatchingListController());
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -155,7 +159,17 @@ class DetailTvView extends GetView<TvShowController> {
                             height: 30.0,
                           ),
                           ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () async{
+                                WatchLaterResults result = WatchLaterResults(
+                                  id: controller.detailTv.value.id,
+                                  title: controller.detailTv.value.name,
+                                  overview: controller.detailTv.value.overview,
+                                  rating: controller.detailTv.value.voteAverage,
+                                  posterPath: controller.detailTv.value.posterPath,
+                                  isMovie: false,
+                                );
+                               await watchingListController.addToWatchingList(result);
+                              },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.red,
                                   minimumSize: Size(Get.width, 50.0),
