@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 class WatchLaterModel {
   List<WatchLaterResults>? results;
 
   WatchLaterModel({this.results});
 
-  WatchLaterModel.fromJson(Map<String, dynamic> json) {
+  WatchLaterModel.from(Map<String, dynamic> json) {
+    //print('data : ${json['results']}');
     if (json['results'] != null) {
       results = <WatchLaterResults>[];
       json['results'].forEach((v) {
-        results!.add(WatchLaterResults.fromJson(v));
+        print('data $v');
+         results!.add(WatchLaterResults.from(v));
       });
     }
   }
@@ -37,13 +41,14 @@ class WatchLaterResults {
       this.posterPath,
       this.rating});
 
-  WatchLaterResults.fromJson(Map<String, dynamic> json) {
+  WatchLaterResults.from(Map<String, dynamic> json) {
+
     posterPath = json['poster_path'];
     title = json['title'];
-    overview = json['overview'].cast<int>();
+    overview = json['overview'];
     id = json['id'];
     isMovie = json['is_movie'];
-    rating = double.parse(json['vote_average'].toString());
+    rating = json['vote_average'];
   }
 
   Map<String, dynamic> toJson() {

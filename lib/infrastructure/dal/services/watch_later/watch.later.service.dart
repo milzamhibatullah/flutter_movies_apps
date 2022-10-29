@@ -11,10 +11,8 @@ class WatchLaterService{
   /// set watch later content
   void setWatchLater(WatchLaterModel watchLaterModel){
     try{
-      var jsonData = jsonEncode({
-        'results':watchLaterModel.toJson()
-      });
-
+      var jsonData = watchLaterModel.toJson();
+    print(jsonData);
        _provider.setWatchLater(jsonData);
   }catch(e){
       log('error watch later service :  $e');
@@ -26,8 +24,10 @@ class WatchLaterService{
     try{
       WatchLaterModel? model;
       await _provider.getWatchLater().then((value){
+        print(value);
         if(value!=null){
-          model = WatchLaterModel.fromJson(value);
+          Map<String,dynamic> data = jsonDecode(value) as Map<String,dynamic>;
+          model = WatchLaterModel.from(data);
         }else{
           model=WatchLaterModel();
         }

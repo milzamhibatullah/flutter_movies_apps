@@ -18,7 +18,7 @@ class WatchLaterPovider{
     }
   }
 
-  void setWatchLater(String jsonData)async{
+  void setWatchLater(dynamic jsonData)async{
     try{
        _storage.setContent(jsonData);
     }catch(e) {

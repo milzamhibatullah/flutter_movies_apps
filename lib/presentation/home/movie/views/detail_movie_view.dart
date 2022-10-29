@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:movies_apps/domain/watch_later/watch.later.model.dart';
 import 'package:movies_apps/presentation/component/shimmer.component.dart';
 import 'package:movies_apps/presentation/component/text.component.dart';
 import 'package:movies_apps/presentation/home/controllers/movie.controller.dart';
@@ -192,7 +193,31 @@ class DetailMovieView extends StatelessWidget {
                                     height: 30.0,
                                   ),
                                   ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: watchingListController
+                                              .checkIsExist(
+                                                  id: controller
+                                                      .detailMovie.value.id)
+                                          ? null
+                                          : () async {
+                                              WatchLaterResults result =
+                                                  WatchLaterResults(
+                                                id: controller
+                                                    .detailMovie.value.id,
+                                                title: controller
+                                                    .detailMovie.value.title,
+                                                overview: controller
+                                                    .detailMovie.value.overview,
+                                                rating: controller.detailMovie
+                                                    .value.voteAverage,
+                                                posterPath: controller
+                                                    .detailMovie
+                                                    .value
+                                                    .posterPath,
+                                                isMovie: false,
+                                              );
+                                              await watchingListController
+                                                  .addToWatchingList(result);
+                                            },
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.red,
                                           minimumSize: Size(Get.width, 50.0),

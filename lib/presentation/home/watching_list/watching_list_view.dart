@@ -84,16 +84,24 @@ class WatchingListView extends StatelessWidget {
     final item = controller.watchLater.value.results![index];
     return GestureDetector(
       onTap: () async {
-        // controller.seTvId(item.id);
-        // controller.getDetailTv();
-        // await Get.toNamed('/detail-tv');
+        if(item.isMovie==true){
+          _movieController.setMovieId(item.id);
+          _movieController.getDetailMovie();
+          await Get.toNamed('/detail-movie');
+
+        }else{
+          _tvShowController.seTvId(item.id);
+          _tvShowController.getDetailTv();
+          await Get.toNamed('/detail-tv');
+        }
+
       },
       behavior: HitTestBehavior.opaque,
       child: Container(
         width: Get.width,
         height: Get.height / 4,
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
-        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           image: DecorationImage(

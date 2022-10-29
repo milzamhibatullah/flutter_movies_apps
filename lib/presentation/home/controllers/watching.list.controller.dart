@@ -29,14 +29,33 @@ class WatchingListController extends GetxController {
 
   addToWatchingList(WatchLaterResults result) async{
     isLoading.value=true;
+    var data = <WatchLaterResults>[];
     if(watchLater.value.results!=null && watchLater.value.results!.isNotEmpty){
       if(watchLater.value.results!.where((e) => e.id==result.id).isEmpty){
-        watchLater.value.results!.add(result);
+        data=watchLater.value.results!;
+        data.add(result);
       }
     }else{
-      watchLater.value.results!.add(result);
+     data.add(result);
     }
 
-    _watchingListRepository.setWatchLater(watchLater.value);
+    _watchingListRepository.setWatchLater(WatchLaterModel(results: data));
+
+    isLoading.value=false;
+
+    await _getWatchLater();
+  }
+
+  ///validate is exist
+  bool checkIsExist({int? id}) {
+    if(watchLater.value.results!=null && watchLater.value.results!.isNotEmpty){
+      if(watchLater.value.results!.where((e) => e.id == id).isNotEmpty){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
   }
 }

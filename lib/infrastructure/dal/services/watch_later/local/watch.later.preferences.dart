@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class WatchLaterPreferences{
@@ -7,7 +9,7 @@ class WatchLaterPreferences{
 
   ///set content
   void setContent(dynamic data)async{
-    await _storage.write(key: content, value: data);
+    await _storage.write(key: content, value: jsonEncode(data));
   }
   ///get content
   dynamic getContent()async{
