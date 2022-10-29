@@ -20,6 +20,7 @@ Clone the project first
   git clone https://github.com/milzamhibatullah/flutter_movies_apps.git
   git fetch
   git checkout master
+  git pull origin master
 ```
 Enter the project directory
 ```bash
