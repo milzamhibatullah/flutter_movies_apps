@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:movies_apps/domain/movie/detail.movie.model.dart';
 import 'package:movies_apps/domain/movie/movie.model.dart';
-import 'package:movies_apps/domain/movie/now.playing.model.dart';
-import 'package:movies_apps/domain/movie/popular.movie.model.dart';
+
 import 'package:movies_apps/domain/movie/repository/detail.movie.repository.dart';
 import 'package:movies_apps/domain/movie/repository/movie.repository.dart';
 

@@ -2,10 +2,7 @@ import 'package:get/get.dart';
 import 'package:movies_apps/config.dart';
 import 'package:movies_apps/domain/movie/detail.movie.model.dart';
 import 'package:movies_apps/domain/movie/movie.model.dart';
-import 'package:movies_apps/domain/movie/now.playing.model.dart';
-import 'package:movies_apps/domain/movie/popular.movie.model.dart';
-import 'package:movies_apps/domain/movie/toprated.model.dart';
-import 'package:movies_apps/domain/movie/upcoming.model.dart';
+
 
 class MovieProvider extends GetConnect {
   static const apiKey = '963a04d65af57e8e8269bda27d9c5482';
