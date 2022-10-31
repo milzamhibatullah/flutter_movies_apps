@@ -1,13 +1,12 @@
-class TopRatedTvModel {
+class TvShowModel {
   int? page;
   List<Results>? results;
   int? totalPages;
   int? totalResults;
 
-  TopRatedTvModel(
-      {this.page, this.results, this.totalPages, this.totalResults});
+  TvShowModel({this.page, this.results, this.totalPages, this.totalResults});
 
-  TopRatedTvModel.fromJson(Map<String, dynamic> json) {
+  TvShowModel.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = <Results>[];
